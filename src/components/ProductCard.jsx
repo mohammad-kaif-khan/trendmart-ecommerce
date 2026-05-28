@@ -1,6 +1,10 @@
+
+
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+
 import { addToCart } from "../redux/cartSlice";
+import { addToWishlist } from "../redux/wishlistSlice";
 
 function ProductCard({ product }) {
   const dispatch = useDispatch();
@@ -19,21 +23,34 @@ function ProductCard({ product }) {
       </h2>
 
       <p className="text-green-600 font-bold mt-2">
-        ₹{product.price * 85}
+        ₹{(product.price * 85).toFixed(0)}
       </p>
 
-      <div className="flex gap-2 mt-3">
+      <div className="flex flex-col gap-2 mt-3">
 
         <button
-          onClick={() => dispatch(addToCart(product))}
+          onClick={() =>
+            dispatch(addToCart(product))
+          }
           className="bg-black text-white px-3 py-2 rounded"
         >
           Add Cart
         </button>
 
+        <button
+          onClick={() =>
+            dispatch(
+              addToWishlist(product)
+            )
+          }
+          className="bg-pink-500 text-white px-3 py-2 rounded"
+        >
+          ❤️ Wishlist
+        </button>
+
         <Link
           to={`/product/${product.id}`}
-          className="bg-blue-500 text-white px-3 py-2 rounded"
+          className="bg-blue-500 text-white px-3 py-2 rounded text-center"
         >
           Details
         </Link>

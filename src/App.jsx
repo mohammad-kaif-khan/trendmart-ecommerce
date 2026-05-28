@@ -1,55 +1,4 @@
 
-// import {
-//   BrowserRouter,
-//   Routes,
-//   Route,
-// } from "react-router-dom";
-
-// import Navbar from "./components/Navbar";
-
-// import Home from "./pages/Home";
-// import ProductDetails from "./pages/ProductDetails";
-// import Cart from "./pages/Cart";
-// import Contact from "./pages/Contact";
-
-// function App() {
-//   return (
-//     <BrowserRouter>
-
-//       <Navbar />
-
-//       <Routes>
-
-//         <Route
-//           path="/"
-//           element={<Home />}
-//         />
-
-//         <Route
-//           path="/product/:id"
-//           element={<ProductDetails />}
-//         />
-
-//         <Route
-//           path="/cart"
-//           element={<Cart />}
-//         />
-
-//         <Route
-//           path="/contact"
-//           element={<Contact />}
-//         />
-
-//       </Routes>
-
-//     </BrowserRouter>
-//   );
-// }
-
-// export default App;
-
-
-
 
 import {
   BrowserRouter,
@@ -63,6 +12,7 @@ import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
+import Wishlist from "./pages/Wishlist";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -89,6 +39,11 @@ function App() {
         />
 
         <Route
+          path="/wishlist"
+          element={<Wishlist />}
+        />
+
+        <Route
           path="/contact"
           element={<Contact />}
         />
@@ -105,5 +60,4 @@ function App() {
 }
 
 export default App;
-
 

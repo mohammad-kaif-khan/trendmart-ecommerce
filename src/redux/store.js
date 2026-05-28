@@ -1,15 +1,10 @@
-// import { configureStore } from "@reduxjs/toolkit";
-// import cartReducer from "./cartSlice";
 
-// export default configureStore({
-//   reducer: {
-//     cart: cartReducer,
-//   },
-// });
+
 
 
 import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from "./cartSlice";
+import wishlistReducer from "./wishlistSlice";
 
 const saveState = (state) => {
   localStorage.setItem(
@@ -19,8 +14,7 @@ const saveState = (state) => {
 };
 
 const loadState = () => {
-  const data =
-    localStorage.getItem("cart");
+  const data = localStorage.getItem("cart");
 
   if (!data) return undefined;
 
@@ -30,6 +24,7 @@ const loadState = () => {
 const store = configureStore({
   reducer: {
     cart: cartReducer,
+    wishlist: wishlistReducer,
   },
   preloadedState: loadState(),
 });

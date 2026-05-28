@@ -1,24 +1,4 @@
-// import { Link } from "react-router-dom";
-// import { useSelector } from "react-redux";
 
-// function Navbar() {
-//   const cart = useSelector(state => state.cart.items);
-
-//   return (
-//     <nav className="bg-black text-white p-4 flex justify-between">
-//       <Link to="/">Shop</Link>
-
-//       <div className="flex gap-4">
-//         <Link to="/contact">Contact</Link>
-//         <Link to="/cart">
-//           Cart ({cart.length})
-//         </Link>
-//       </div>
-//     </nav>
-//   );
-// }
-
-// export default Navbar;
 
 
 import { Link } from "react-router-dom";
@@ -27,6 +7,10 @@ import { useSelector } from "react-redux";
 function Navbar() {
   const cartItems = useSelector(
     (state) => state.cart.items
+  );
+
+  const wishlistItems = useSelector(
+    (state) => state.wishlist.items
   );
 
   const totalItems = cartItems.reduce(
@@ -44,26 +28,22 @@ function Navbar() {
         TrendMart
       </Link>
 
-      <div className="flex items-center gap-6">
+      <div className="flex gap-5">
 
-        <Link
-          to="/"
-          className="hover:text-gray-300"
-        >
+        <Link to="/">
           Home
         </Link>
 
-        <Link
-          to="/contact"
-          className="hover:text-gray-300"
-        >
+        <Link to="/contact">
           Contact
         </Link>
 
-        <Link
-          to="/cart"
-          className="hover:text-gray-300"
-        >
+        <Link to="/wishlist">
+          Wishlist (
+          {wishlistItems.length})
+        </Link>
+
+        <Link to="/cart">
           Cart ({totalItems})
         </Link>
 
