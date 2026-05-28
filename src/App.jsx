@@ -1,5 +1,6 @@
 
 
+
 import {
   BrowserRouter,
   Routes,
@@ -13,6 +14,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
 import Wishlist from "./pages/Wishlist";
+import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -44,6 +46,11 @@ function App() {
         />
 
         <Route
+          path="/checkout"
+          element={<Checkout />}
+        />
+
+        <Route
           path="/contact"
           element={<Contact />}
         />
@@ -60,4 +67,3 @@ function App() {
 }
 
 export default App;
-

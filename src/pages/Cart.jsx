@@ -1,7 +1,6 @@
 
 
 
-
 import {
   useDispatch,
   useSelector,
@@ -12,6 +11,8 @@ import {
   increaseQty,
   decreaseQty,
 } from "../redux/cartSlice";
+
+import { Link } from "react-router-dom";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -32,7 +33,8 @@ function Cart() {
 
   const total = items.reduce(
     (acc, item) =>
-      acc + item.price * item.quantity,
+      acc +
+      item.price * item.quantity,
     0
   );
 
@@ -50,14 +52,18 @@ function Cart() {
         >
 
           <div>
+
             <h2 className="font-semibold">
               {item.title}
             </h2>
 
             <p>
               ₹
-              {(item.price * 85).toFixed(0)}
+              {(item.price * 85).toFixed(
+                0
+              )}
             </p>
+
           </div>
 
           <div className="flex items-center gap-3">
@@ -108,6 +114,13 @@ function Cart() {
         Total : ₹
         {(total * 85).toFixed(0)}
       </h2>
+
+      <Link
+        to="/checkout"
+        className="inline-block mt-5 bg-green-600 text-white px-5 py-3 rounded"
+      >
+        Proceed To Checkout
+      </Link>
 
     </div>
   );
